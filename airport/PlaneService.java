@@ -68,9 +68,9 @@ public class PlaneService {
         }
     }
 
-    public static void highestCost(Plane plane1, Plane plane2, Plane plane3){
+    public static void smallestSeats(Plane plane1, Plane plane2, Plane plane3){
         if(plane3.getSeats() < plane2.getSeats() && plane3.getSeats() < plane1.getSeats()){
-            System.out.println(plane3.getCountry();)
+            System.out.println(plane3.getCountry());
         }else if(plane2.getSeats() < plane3.getSeats() && plane2.getSeats() < plane1.getSeats()){
             System.out.println(plane2.getCountry());
         }else{
