@@ -11,7 +11,54 @@ public class AirportTest {
         Plane plane2 = PlaneService.makePlane();
         Plane plane3 = PlaneService.makePlane();
         Plane[] planesArray = {plane1, plane2, plane3};
-        PlaneService.printInfo(plane1);
+
+        System.out.println("printNameAndAge");
+        PlaneService.printNameAndAge(plane1);
+        System.out.println("--------------------------------------------");
+
+        System.out.println("newerPlane");
+        PlaneService.printInfo(PlaneService.newerPlane(plane1, plane2));
+        System.out.println("--------------------------------------------");
+
+        System.out.println("biggerWingspan");
+        System.out.println(PlaneService.biggerWingspan(plane2, plane3));
+        System.out.println("--------------------------------------------");
+
+        System.out.println("highestCost");
+        PlaneService.printInfo(PlaneService.highestCost(plane1, plane2, plane3));
+        System.out.println("---------------------------------------------------");
+
+        System.out.println("smallestSeats");
+        PlaneService.smallestSeats(plane1, plane2, plane3);
+        System.out.println("---------------------------------------------------");
+
+        System.out.println("notMilitary");
+        PlaneService.notMilitary(planesArray);
+        System.out.println("-----------------------------------------------------");
+
+        System.out.println("allMilitary");
+        PlaneService.allMilitary(planesArray);
+        System.out.println("------------------------------------------------------");
+
+        System.out.println("minimalWeight");
+        PlaneService.printInfo(PlaneService.minimalWeight(planesArray));
+        System.out.println("-------------------------------------------------------");
+
+        System.out.println("minimalCostOfMilitaryPlanes");
+        PlaneService.printInfo(PlaneService.minimalCostOfMilitaryPlanes(planesArray));
+        System.out.println("--------------------------------------------------------");
+
+        System.out.println("planesOrderByYear");
+        PlaneService.planesOrderByYear(planesArray);
+        System.out.println("--------------------------------------------------------");
+
+        System.out.println("planesOrderByNumberOfSeats");
+        PlaneService.planesOrderByNumberOfSeats(planesArray);
+        System.out.println("----------------------------------------------------------");
+
+
+
+
 
     }
 }

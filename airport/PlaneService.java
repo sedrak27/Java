@@ -79,17 +79,17 @@ public class PlaneService {
     }
 
     public static void notMilitary(Plane[] planes){
-        for (int i = 0; i < planes.length; i++) {
-            if(!planes[i].isMilitary()){
-                printInfo(planes[i]);
+        for (Plane plane : planes) {
+            if (!plane.isMilitary()) {
+                printInfo(plane);
             }
         }
     }
 
     public static void allMilitary(Plane[] planes){
-        for(int i = 0; i < planes.length; i++) {
-            if(planes[i].isMilitary() && planes[i].getHours() > 100){
-                printInfo(planes[i]);
+        for (Plane plane : planes) {
+            if (plane.isMilitary() && plane.getHours() > 100) {
+                printInfo(plane);
             }
         }
     }
@@ -97,26 +97,58 @@ public class PlaneService {
     public static Plane minimalWeight(Plane[] planes){
         int minimal = planes[0].getWeight();
         Plane minimalWeightPlane = planes[0];
-        for(int i = 0; i < planes.length; i++) {
-            if(planes[i].getWeight() < minimal){
-                minimal = planes[i].getWeight();
-                minimalWeightPlane = planes[i];
+        for (Plane plane : planes) {
+            if (plane.getWeight() < minimal) {
+                minimal = plane.getWeight();
+                minimalWeightPlane = plane;
             }
         }
         return minimalWeightPlane;
     }
 
-    public static Plane minimalCostofMilitaryPlanes(Plane[] planes) {
+    public static Plane minimalCostOfMilitaryPlanes(Plane[] planes) {
         float minimal = planes[0].getCost();
         Plane minimalWeightPlane = planes[0];
 
-        for(int i = 0; i < planes.length; i++) {
-            if (planes[i].getWeight() < minimal) {
-                minimal = planes[i].getWeight();
-                minimalWeightPlane = planes[i];
+        for (Plane plane : planes) {
+            if (plane.getWeight() < minimal) {
+                minimal = plane.getWeight();
+                minimalWeightPlane = plane;
             }
         }
         return minimalWeightPlane;
     }
 
+    public static void printPlanesArray(Plane[] planes){
+        for (Plane plane : planes) {
+            System.out.println(plane);
+        }
+    }
+
+    public static void planesOrderByYear(Plane[] planes){
+        Plane sw;
+        for (int i = 0; i < planes.length; i++) {
+            for (int j = 0; j < planes.length - 1; j++) {
+                if(planes[j].getYear() > planes[j + 1].getYear()){
+                    sw = planes[j];
+                    planes[j] = planes[j + 1];
+                    planes[j + 1] = sw;
+                }
+            }
+        }
+        printPlanesArray(planes);
+    }
+    public static void planesOrderByNumberOfSeats(Plane[] planes){
+        Plane sw;
+        for (int i = 0; i < planes.length; i++) {
+            for (int j = 0; j < planes.length - 1; j++) {
+                if(planes[j].getSeats() < planes[j + 1].getSeats()){
+                    sw = planes[j];
+                    planes[j] = planes[j + 1];
+                    planes[j + 1] = sw;
+                }
+            }
+        }
+        printPlanesArray(planes);
+    }
 }
