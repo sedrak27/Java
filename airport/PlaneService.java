@@ -77,4 +77,46 @@ public class PlaneService {
             System.out.println(plane1.getCountry());
         }
     }
+
+    public static void notMilitary(Plane[] planes){
+        for (int i = 0; i < planes.length; i++) {
+            if(!planes[i].isMilitary()){
+                printInfo(planes[i]);
+            }
+        }
+    }
+
+    public static void allMilitary(Plane[] planes){
+        for(int i = 0; i < planes.length; i++) {
+            if(planes[i].isMilitary() && planes[i].getHours() > 100){
+                printInfo(planes[i]);
+            }
+        }
+    }
+
+    public static Plane minimalWeight(Plane[] planes){
+        int minimal = planes[0].getWeight();
+        Plane minimalWeightPlane = planes[0];
+        for(int i = 0; i < planes.length; i++) {
+            if(planes[i].getWeight() < minimal){
+                minimal = planes[i].getWeight();
+                minimalWeightPlane = planes[i];
+            }
+        }
+        return minimalWeightPlane;
+    }
+
+    public static Plane minimalCostofMilitaryPlanes(Plane[] planes) {
+        float minimal = planes[0].getCost();
+        Plane minimalWeightPlane = planes[0];
+
+        for(int i = 0; i < planes.length; i++) {
+            if (planes[i].getWeight() < minimal) {
+                minimal = planes[i].getWeight();
+                minimalWeightPlane = planes[i];
+            }
+        }
+        return minimalWeightPlane;
+    }
+
 }
